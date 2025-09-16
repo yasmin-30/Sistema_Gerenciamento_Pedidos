@@ -1,16 +1,16 @@
 package gerenciamentoPedidos;
 
 public class Item {
-	private String nomePedido;
+	private String nomeItem;
 	private double preco;
 	
 	public Item(String nome, double preco) {
-		this.nomePedido = nome;
+		this.nomeItem = nome;
 		this.preco = preco;
 	}
 	
-	public String getNomePedido() {
-		return nomePedido;
+	public String getNomeItem() {
+		return nomeItem;
 	}
 	
 	public double getPreco() {

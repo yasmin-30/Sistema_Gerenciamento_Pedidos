@@ -11,9 +11,10 @@ public class Sistema {
 		boolean paradaPedido = false;
 		LinkedList<Pedido> listaPedidos = new LinkedList<Pedido>();
 		Scanner leitor = new Scanner(System.in);
+		System.out.println("Seja bem vindo ao restaurante------!");
 		
 		while(!paradaPedido) {
-			System.out.println("Seja bem vindo ao restaurante------! Digite o número da ação que deseja realizar: ");
+			System.out.println("Digite o número da ação que deseja realizar: ");
 			System.out.println("1-Adicionar pedido. 2-Remover pedido. 3-Listar pedidos., 4-Sair.");
 			int acao = leitor.nextInt();
 			leitor.nextLine();
@@ -78,7 +79,19 @@ public class Sistema {
 			        
 				case 3:
 					for(int i=0; i < listaPedidos.size(); i++) {
-						System.out.println(listaPedidos.get(i));
+						ArrayList<Item> listaItens = new ArrayList<Item>();
+						Pedido imprimirPedido = listaPedidos.get(i);
+						listaItens = imprimirPedido.getItens();
+						
+						System.out.println("-------------------------");
+						System.out.println("Nome do cliente: " + imprimirPedido.getName() + ".");
+						System.out.println("Id do cliente: " + imprimirPedido.getId() + ".");
+						
+						for(int j=0; j < listaItens.size(); j++) {
+							Item imprimirItem = listaItens.get(j);
+							System.out.println("Nome do item: " + imprimirItem.getNomeItem() + ".");
+							System.out.println("Preço do item: " + imprimirItem.getPreco() + ".");
+						}
 					}
 					break;
 				case 4:

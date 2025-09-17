@@ -60,13 +60,13 @@ public class Sistema {
 					}
 					
 					pedidoFinal = new Pedido(idPedido, nome, itens);
+					System.out.println("---RESUMO DO PEDIDO---");
 					pedidoFinal.resumoPedido();
 					listaPedidos.add(pedidoFinal);
 					break;
 				
 				case 2:	
-					int verificar = 0;
-					int tamPedidos = listaPedidos.size()-1;
+					boolean verificar = true;
 					System.out.println("Informe o id do pedido: ");
 					double idRemover = leitor.nextDouble();
 					
@@ -75,32 +75,24 @@ public class Sistema {
 			            if (remover.getId() == idRemover) {
 			                listaPedidos.remove(remover);
 			                System.out.println("Pedido removido!");
+			                verificar = false;
 			                break;
-			            } else {
-			            	verificar+=1;
 			            }
 			        }
 			        
-			        if(verificar == tamPedidos) {
+			        if(verificar) {
 			        	System.out.println("ERRO! O pedido informado não está presente na lista!");
 			        }
 			        break;
 			        
 				case 3:
 					System.out.println("---LISTAGEM DOS PEDIDOS---");
-					for(int i=0; i < listaPedidos.size(); i++) {
-						ArrayList<Item> listaItens = new ArrayList<Item>();
-						Pedido imprimirPedido = listaPedidos.get(i);
-						listaItens = imprimirPedido.getItens();
-						
-						System.out.println("");
-						
-						System.out.println("Cliente: " + imprimirPedido.getName() + ".");
-						System.out.println("Nº do pedido: " + imprimirPedido.getId() + ".");
-						for(int j=0; j < listaItens.size(); j++) {
-							Item imprimirItem = listaItens.get(j);
-							System.out.println("Item: " + imprimirItem.getNomeItem() + ".");
-							System.out.println("Preço: " + imprimirItem.getPreco() + ".");
+					if(listaPedidos.size()==0) {
+						System.out.println("Você ainda não fez nenhum pedido!");
+					}else {
+						for(int i=0; i < listaPedidos.size(); i++) {
+							Pedido imprimirPedido = listaPedidos.get(i);
+							imprimirPedido.resumoPedido();
 						}
 					}
 					break;

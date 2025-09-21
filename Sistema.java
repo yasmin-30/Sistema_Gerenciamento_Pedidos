@@ -10,7 +10,9 @@ public class Sistema {
 		boolean paradaPedido = false;
 		LinkedList<Pedido> listaPedidos = new LinkedList<Pedido>();
 		Scanner leitor = new Scanner(System.in);
-		System.out.println("---BEM-VINDO AO RESTAURANTE!---");
+		System.out.println("\n========================================");
+		System.out.println("        BEM VINDO AO REST AURANTE!        ");
+		System.out.println("========================================");
 		
 		while(!paradaPedido) {
 			System.out.println("");
@@ -99,7 +101,9 @@ public class Sistema {
 				case 4:
 					paradaPedido = true;
 					System.out.println("Pedidos realizados com sucesso!");
-					System.out.println("---VOLTE SEMPRE---");
+					System.out.println("\n========================================");
+					System.out.println("              VOLTE SEMPRE!              ");
+					System.out.println("========================================");
 					break;
 			}        
 		}

@@ -105,6 +105,9 @@ public class Sistema {
 					System.out.println("              VOLTE SEMPRE!              ");
 					System.out.println("========================================");
 					break;
+					
+				default:
+					System.out.println("\nAção inválida! Digite um número válido de ação.");
 			}        
 		}
 		
